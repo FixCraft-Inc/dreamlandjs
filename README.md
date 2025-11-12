@@ -1,6 +1,9 @@
 <h1 align="center">dreamland.js</h1>
 <p align="center"><img src="./static/logo.png" alt="logo" height="100"></p>
 
+> **IridiumOS Fork**  
+> This FixCraft Inc. fork of [MercuryWorkshop/dreamlandjs](https://github.com/MercuryWorkshop/dreamlandjs) is tuned for IridiumOS. For unrelated projects, please use the upstream repository.
+
 dreamland is a reactive JSX-inspired UI library with **no virtual dom** and **no build step**. It is less than 3kb minified (smaller than preact), gradually integrates with existing plain JS projects, and is reasonably easy to learn
 
 <div align="center">
@@ -9,8 +12,8 @@ dreamland is a reactive JSX-inspired UI library with **no virtual dom** and **no
 <br/>
 
 <div align="center">
-  <img src="https://img.shields.io/github/issues/MercuryWorkshop/dreamlandjs?style=for-the-badge&color=purple" height="25"/>
-  <img src="https://img.shields.io/github/stars/MercuryWorkshop/dreamlandjs?style=for-the-badge&color=purple" height="25"/>
+  <img src="https://img.shields.io/github/issues/FixCraft-Inc/dreamlandjs?style=for-the-badge&color=purple" height="25"/>
+  <img src="https://img.shields.io/github/stars/FixCraft-Inc/dreamlandjs?style=for-the-badge&color=purple" height="25"/>
 </div>
 
 ---
@@ -46,8 +49,8 @@ Note that this is a development build. For production, you should pin the versio
 If you care about the bundle size, it is recommended to serve a custom bundle with only the features you need.
 
 ```bash
-git clone https://github.com/MercuryWorkshop/dreamland
-cd dreamland
+git clone https://github.com/FixCraft-Inc/dreamlandjs
+cd dreamlandjs
 npm install
 npm rollup -c --file path/to/output.js --enable-jsxLiterals --disable-css
 # see https://dreamland.js.org/building for more options
