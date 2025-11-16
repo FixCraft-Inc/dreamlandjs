@@ -5,7 +5,18 @@ import { readFile } from 'node:fs/promises'
 
 const packagemeta = JSON.parse(await readFile('package.json'))
 
-export default (args) => {
+function applyEnvFlags(target) {
+    const rawFlags = process.env.DREAMLAND_FLAGS
+    if (!rawFlags) return
+    for (const flag of rawFlags.split(/[, \t\r\n]+/)) {
+        const clean = flag.trim()
+        if (!clean) continue
+        target[clean] = true
+    }
+}
+
+export default (args = {}) => {
+    applyEnvFlags(args)
     const plugins = []
 
     const stripfunctions = []
@@ -129,10 +140,14 @@ export default (args) => {
                 renderChunk(code) {
                     // iife output doesn't support globals, and the name:"window" hack they told me to use on github doesn't work with a bundler
                     // regex is good enough
-                    return code.replace(
+                    const rewritten = code.replace(
                         /\(this\.window.?=.?this\.window.?\|\|.?\{\}\);/,
                         '(window)'
                     )
+                    return {
+                        code: rewritten,
+                        map: null,
+                    }
                 },
             },
         ],
